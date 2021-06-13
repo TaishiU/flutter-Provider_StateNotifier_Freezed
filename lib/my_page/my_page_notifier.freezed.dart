@@ -16,11 +16,16 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$MyPageStateTearOff {
   const _$MyPageStateTearOff();
 
-  _MyPageState call({int count = 0, String? weight, String? comment}) {
+  _MyPageState call(
+      {int count = 0,
+      String? weight,
+      String? comment,
+      List<Map<String, String?>> record = const []}) {
     return _MyPageState(
       count: count,
       weight: weight,
       comment: comment,
+      record: record,
     );
   }
 }
@@ -33,6 +38,7 @@ mixin _$MyPageState {
   int get count => throw _privateConstructorUsedError;
   String? get weight => throw _privateConstructorUsedError;
   String? get comment => throw _privateConstructorUsedError;
+  List<Map<String, String?>> get record => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MyPageStateCopyWith<MyPageState> get copyWith =>
@@ -44,7 +50,11 @@ abstract class $MyPageStateCopyWith<$Res> {
   factory $MyPageStateCopyWith(
           MyPageState value, $Res Function(MyPageState) then) =
       _$MyPageStateCopyWithImpl<$Res>;
-  $Res call({int count, String? weight, String? comment});
+  $Res call(
+      {int count,
+      String? weight,
+      String? comment,
+      List<Map<String, String?>> record});
 }
 
 /// @nodoc
@@ -60,6 +70,7 @@ class _$MyPageStateCopyWithImpl<$Res> implements $MyPageStateCopyWith<$Res> {
     Object? count = freezed,
     Object? weight = freezed,
     Object? comment = freezed,
+    Object? record = freezed,
   }) {
     return _then(_value.copyWith(
       count: count == freezed
@@ -74,6 +85,10 @@ class _$MyPageStateCopyWithImpl<$Res> implements $MyPageStateCopyWith<$Res> {
           ? _value.comment
           : comment // ignore: cast_nullable_to_non_nullable
               as String?,
+      record: record == freezed
+          ? _value.record
+          : record // ignore: cast_nullable_to_non_nullable
+              as List<Map<String, String?>>,
     ));
   }
 }
@@ -85,7 +100,11 @@ abstract class _$MyPageStateCopyWith<$Res>
           _MyPageState value, $Res Function(_MyPageState) then) =
       __$MyPageStateCopyWithImpl<$Res>;
   @override
-  $Res call({int count, String? weight, String? comment});
+  $Res call(
+      {int count,
+      String? weight,
+      String? comment,
+      List<Map<String, String?>> record});
 }
 
 /// @nodoc
@@ -103,6 +122,7 @@ class __$MyPageStateCopyWithImpl<$Res> extends _$MyPageStateCopyWithImpl<$Res>
     Object? count = freezed,
     Object? weight = freezed,
     Object? comment = freezed,
+    Object? record = freezed,
   }) {
     return _then(_MyPageState(
       count: count == freezed
@@ -117,6 +137,10 @@ class __$MyPageStateCopyWithImpl<$Res> extends _$MyPageStateCopyWithImpl<$Res>
           ? _value.comment
           : comment // ignore: cast_nullable_to_non_nullable
               as String?,
+      record: record == freezed
+          ? _value.record
+          : record // ignore: cast_nullable_to_non_nullable
+              as List<Map<String, String?>>,
     ));
   }
 }
@@ -124,7 +148,8 @@ class __$MyPageStateCopyWithImpl<$Res> extends _$MyPageStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_MyPageState implements _MyPageState {
-  const _$_MyPageState({this.count = 0, this.weight, this.comment});
+  const _$_MyPageState(
+      {this.count = 0, this.weight, this.comment, this.record = const []});
 
   @JsonKey(defaultValue: 0)
   @override
@@ -133,10 +158,13 @@ class _$_MyPageState implements _MyPageState {
   final String? weight;
   @override
   final String? comment;
+  @JsonKey(defaultValue: const [])
+  @override
+  final List<Map<String, String?>> record;
 
   @override
   String toString() {
-    return 'MyPageState(count: $count, weight: $weight, comment: $comment)';
+    return 'MyPageState(count: $count, weight: $weight, comment: $comment, record: $record)';
   }
 
   @override
@@ -148,7 +176,10 @@ class _$_MyPageState implements _MyPageState {
             (identical(other.weight, weight) ||
                 const DeepCollectionEquality().equals(other.weight, weight)) &&
             (identical(other.comment, comment) ||
-                const DeepCollectionEquality().equals(other.comment, comment)));
+                const DeepCollectionEquality()
+                    .equals(other.comment, comment)) &&
+            (identical(other.record, record) ||
+                const DeepCollectionEquality().equals(other.record, record)));
   }
 
   @override
@@ -156,7 +187,8 @@ class _$_MyPageState implements _MyPageState {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(count) ^
       const DeepCollectionEquality().hash(weight) ^
-      const DeepCollectionEquality().hash(comment);
+      const DeepCollectionEquality().hash(comment) ^
+      const DeepCollectionEquality().hash(record);
 
   @JsonKey(ignore: true)
   @override
@@ -165,8 +197,11 @@ class _$_MyPageState implements _MyPageState {
 }
 
 abstract class _MyPageState implements MyPageState {
-  const factory _MyPageState({int count, String? weight, String? comment}) =
-      _$_MyPageState;
+  const factory _MyPageState(
+      {int count,
+      String? weight,
+      String? comment,
+      List<Map<String, String?>> record}) = _$_MyPageState;
 
   @override
   int get count => throw _privateConstructorUsedError;
@@ -174,6 +209,8 @@ abstract class _MyPageState implements MyPageState {
   String? get weight => throw _privateConstructorUsedError;
   @override
   String? get comment => throw _privateConstructorUsedError;
+  @override
+  List<Map<String, String?>> get record => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$MyPageStateCopyWith<_MyPageState> get copyWith =>

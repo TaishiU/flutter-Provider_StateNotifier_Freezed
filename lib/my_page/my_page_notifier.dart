@@ -11,6 +11,7 @@ abstract class MyPageState with _$MyPageState {
     @Default(0) int count,
     String? weight,
     String? comment,
+    @Default([]) List<Map<String, String?>> record,
   }) = _MyPageState;
 }
 
@@ -46,5 +47,23 @@ class MyPageNotifier extends StateNotifier<MyPageState> with LocatorMixin {
     state = state.copyWith(comment: value);
     print('コメントしたよ！');
     print(state.comment);
+  }
+
+  void register() {
+    final dateTime = DateTime.now();
+    final day = '${dateTime.year}年${dateTime.month}月${dateTime.day}日';
+    /* final：再代入不可、代入される値で型を判断するため型指定の省略が可能 */
+    final formRecord = {
+      'weight': state.weight,
+      'comment': state.comment,
+      'day': day,
+    };
+
+    print(formRecord);
+    /* state.record.add()ではエラーが発生するため、新規のコピー「newRecord」を作り、データをaddする */
+    final newRecord = List<Map<String, String?>>.from(state.record);
+    newRecord.add(formRecord);
+    state = state.copyWith(record: newRecord);
+    Navigator.of(context).pop();
   }
 }
